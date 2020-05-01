@@ -15,7 +15,7 @@ Result in Kilojoules, Formula = Katch-McArdle: Enter Body Fat % 31.
 Result in Calories, Formula = Katch-McArdle: Enter Body Fat % 45.
 
 6.  Age = 56, Gender = Mail, Current Weight = 252 Pounds, Height = 6 feet 8inches, Exercise level = Daily, 
-Result in Kilojoules, Formula = Katch-McArdle: Enter Body Fat % 64.
+Result in Kilojoules, Formula = Katch-McArdle: Enter Body Fat % 67.
 
 7.  Age = 68, Gender = Femail, Current Weight = 456 Pounds, Height = 7 feet 0inches, Exercise level = 5 times/week (intense) 
 Result in Calories, Formula = Harris-Benedict.
@@ -24,4 +24,4 @@ Result in Calories, Formula = Harris-Benedict.
 Result in Kilojoules, Formula = Harris-Benedict.
 
 9.  Age = 80, Gender = Mail, Current Weight = 600 Kilos, Height = 7 feet 11inches, Exercise level = Dayly exercise + physical job, 
-Result in Calories, Formula = Harris-Benedict.
+Result in Calories, Formula = Harris-Benedict. 
