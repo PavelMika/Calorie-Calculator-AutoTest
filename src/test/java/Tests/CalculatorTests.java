@@ -41,7 +41,7 @@ public class CalculatorTests extends BaseTest {
                 .resultsInKilojoules()
                 .formulaMifflinStJeor()
                 .calculate()
-                //.maintenanceResult("4109")
+                .maintenanceResult("4109")
                 .fatLossResult("3287")
                 .extremeFatLossResult("2465");
     }

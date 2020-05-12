@@ -12,8 +12,7 @@ import utils.CapabilitiesGenerator;
 import utils.TestListener;
 
 import java.util.concurrent.TimeUnit;
-
-@Listeners(TestListener.class)
+//@Listeners(TestListener.class)
 public class BaseTest {
 
     private WebDriver driver;
@@ -24,7 +23,7 @@ public class BaseTest {
     @BeforeMethod
     public void setDriver(ITestContext context){
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         calculatorPage = new CalculatorPage(driver);
