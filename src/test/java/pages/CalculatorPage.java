@@ -1,45 +1,52 @@
-package Pages;
+package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import utils.AllureUtils;
 
 import static org.testng.Assert.assertEquals;
 
+@Log4j2
 public class CalculatorPage extends BasePage {
     public CalculatorPage(WebDriver driver) {
         super(driver);
     }
 
-    @Step("Открытие страницы")
+    @Step("Opening Capabilities Generator")
     public CalculatorPage openPage() {
         driver.get("https://www.freedieting.com/calorie-calculator");
+        AllureUtils.takeScreenshot(driver);
         return this;
     }
 
-    @Step("Ввод возраста")
+    @Step("Writing age into calculator: {text}")
     public CalculatorPage writeAge(String text){
+        log.info("Writing age into calculator" +text);
         driver.findElement(By.id("age")).sendKeys(text);
+        AllureUtils.takeScreenshot(driver);
         return this;
     }
 
-    @Step("Выбор женского пола")
+    @Step("Selecting female gender")
     public CalculatorPage selectFemaleGender(){
         driver.findElement(By.id("sexFem")).click();
         return this;
     }
 
-    @Step("Выбор мужского пола")
+    @Step("Selecting male gender")
     public CalculatorPage selectMaleGender(){
         driver.findElement(By.id("sexMale")).click();
         return this;
     }
 
-    @Step("Ввод веса")
+    @Step("Writihg current weight: {text}")
     public CalculatorPage writeCurrentWeight(String text){
+        log.info("Writihg current weight" +text);
         driver.findElement(By.id("weight")).sendKeys(text);
+        AllureUtils.takeScreenshot(driver);
         return this;
     }
 
@@ -58,14 +65,19 @@ public class CalculatorPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод роста по английской системе")
+    @Step("Writing feet: {text}")
     public CalculatorPage writeFeet(String text){
+        log.info("Writing feet" + text);
         driver.findElement(By.id("feet")).sendKeys(text);
+        AllureUtils.takeScreenshot(driver);
         return this;
     }
 
+    @Step("Writing inches: {text}")
     public CalculatorPage writeInches(String text){
+        log.info("Writing inches" + text);
         driver.findElement(By.id("inches")).sendKeys(text);
+        AllureUtils.takeScreenshot(driver);
         return this;
     }
 
@@ -75,75 +87,89 @@ public class CalculatorPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод роста по метрической системе")
+    @Step("Writing cm: {text}")
     public CalculatorPage writeCm(String text) {
+        log.info("Writing cm" + text);
         driver.findElement(By.id("cm")).sendKeys(text);
+        AllureUtils.takeScreenshot(driver);
         return this;
     }
 
-    @Step("Выбор уровня активности")
+    @Step("Selecting exercise level: {text}")
     public CalculatorPage selectExerciseLevel(String text){
+        log.info("Selecting exercise level" +text);
         Select exercise = new Select(driver.findElement(By.id("activity")));
         exercise.selectByVisibleText(text);
         driver.findElement(By.cssSelector(".icon-cogs")).click();
         return this;
     }
 
-    @Step("")
+    @Step("Selecting result in calories")
     public CalculatorPage resultsInCalories(){
         driver.findElement(By.id("optResults")).click();
         return this;
     }
 
-    @Step("")
+    @Step("Selecting result in kilojoules")
     public CalculatorPage resultsInKilojoules(){
         driver.findElement(By.id("optResults2")).click();
         return this;
     }
 
-    @Step("")
+    @Step("Selecting formula Mifflin St Jeor")
     public CalculatorPage formulaMifflinStJeor() {
         driver.findElement(By.id("optMS")).click();
         return this;
     }
 
-    @Step("")
+    @Step("Selecting formula Katch Mc Ardle: {BodyFat}")
     public CalculatorPage formulaKatchMcArdle(String BodyFat) {
+        log.info("Selecting formula Katch Mc Ardle"+BodyFat);
         driver.findElement(By.id("optLM")).click();
         driver.findElement(By.id("txtBF")).sendKeys(BodyFat);
         return this;
     }
 
-    @Step("")
+    @Step("Selecting formula Harris Benedict")
     public CalculatorPage formulaHarrisBenedict() {
         driver.findElement(By.id("optHB")).click();
         return this;
     }
 
-    @Step("")
     public CalculatorPage calculate(){
         driver.findElement(By.id("Button1")).click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return this;
     }
 
-    @Step("")
+    @Step("Validation that message contains number: {maintenance}")
     public CalculatorPage maintenanceResult(String maintenance){
+        log.info("Validation that message contains number" + maintenance);
         String isExist = driver.findElement(By.id("answer")).getText();
         assertEquals(isExist,maintenance);
+        AllureUtils.takeScreenshot(driver);
         return this;
     }
 
-    @Step("")
+    @Step("Validation that message contains number: {fatLoss}")
     public CalculatorPage fatLossResult(String fatLoss){
+        log.info("Validation that message contains number" + fatLoss);
         String isExist = driver.findElement(By.id("lose")).getText();
         assertEquals(isExist,fatLoss);
+        AllureUtils.takeScreenshot(driver);
         return this;
     }
 
-    @Step("")
+    @Step("Validation that message contains number: {extremeFatLoss}")
     public CalculatorPage extremeFatLossResult(String extremeFatLoss){
-        String isExist = driver.findElement(By.id("ca12")).getText();
+        log.info("Validation that message contains number" + extremeFatLoss);
+        String isExist = driver.findElement(By.id("loseExt")).getText();
         assertEquals(isExist,extremeFatLoss);
+        AllureUtils.takeScreenshot(driver);
         return this;
     }
 }

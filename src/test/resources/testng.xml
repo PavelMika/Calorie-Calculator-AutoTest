@@ -2,7 +2,7 @@
 <suite name="Parallel test suite" parallel="methods" thread-count="2">
     <test name="Test1">
         <classes>
-            <class name="Tests.CalculatorTests"/>
+            <class name="tests.CalculatorTests"/>
         </classes>
     </test>
 </suite>

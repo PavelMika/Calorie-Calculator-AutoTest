@@ -1,13 +1,19 @@
-package Tests;
+package tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.TmsLink;
 import org.testng.annotations.Test;
 
 public class CalculatorTests extends BaseTest {
 
-    @Test(description = "Cteationg of progrct")
-    @Description("Создание какого-то проекта")
-    public void Test1() {
+    @Test(description = "Сhecking the level of \"Basal Metabolic Rate\"")
+    @Description("Сhecking the level of \"Basal Metabolic Rate\"")
+    @Link
+    @Issue("rusak")
+    @TmsLink("rusak")
+    public void checkBasalMetabolicRate() {
         calculatorPage
                 .openPage()
                 .writeAge("13")
@@ -20,14 +26,14 @@ public class CalculatorTests extends BaseTest {
                 .resultsInCalories()
                 .formulaMifflinStJeor()
                 .calculate()
-                .maintenanceResult("497");
-        //.fatLossResult("-")
-        //.extremeFatLossResult("-");
-
+                .maintenanceResult("497")
+                .fatLossResult("-")
+                .extremeFatLossResult("-");
     }
 
-    @Test()
-    public void Test2(){
+    @Test(description = "Сhecking the level of \"Little/no exercise\"")
+    @Description("Сhecking the level of \"Little/no exercise\"")
+    public void checkLittleNoExercise(){
         calculatorPage
                 .openPage()
                 .writeAge("27")
@@ -46,27 +52,29 @@ public class CalculatorTests extends BaseTest {
                 .extremeFatLossResult("2465");
     }
 
-    @Test
-    public void Test3(){
+    @Test(description = "Сhecking the level of \"3 times/week\"")
+    @Description("Сhecking the level of \"3 times/week\"")
+    public void check3TimesInWeek(){
         calculatorPage
-        .openPage()
-        .writeAge("35")
-        .selectFemaleGender()
-       .writeCurrentWeight("83")
-      .selectValueInKilos()
-        .selectCmsHeight()
-        .writeCm("123")
-        .selectExerciseLevel("3 times/week")
-        .resultsInCalories()
-        .formulaKatchMcArdle("5")
-        .calculate()
-        .maintenanceResult("2851")
-        .fatLossResult("2280")
-        .extremeFatLossResult("1710");
+                .openPage()
+                .writeAge("35")
+                .selectFemaleGender()
+                .writeCurrentWeight("83")
+                .selectValueInKilos()
+                .selectCmsHeight()
+                .writeCm("123")
+                .selectExerciseLevel("3 times/week")
+                .resultsInCalories()
+                .formulaKatchMcArdle("5")
+                .calculate()
+                .maintenanceResult("2851")
+                .fatLossResult("2280")
+                .extremeFatLossResult("1710");
     }
 
-    @Test
-    public void Test4(){
+    @Test(description = "Сhecking the level of \"4 times/week\"")
+    @Description("Сhecking the level of \"4 times/week\"")
+    public void check4TimesInWeek(){
         calculatorPage
                 .openPage()
                 .writeAge("41")
@@ -85,8 +93,9 @@ public class CalculatorTests extends BaseTest {
                 .extremeFatLossResult("3007");
     }
 
-    @Test
-    public void Test5(){
+    @Test(description = "Сhecking the level of \"5 times/week\"")
+    @Description("Сhecking the level of \"5 times/week\"")
+    public void check5TimesInWeek(){
         calculatorPage
                 .openPage()
                 .writeAge("50")
@@ -104,8 +113,9 @@ public class CalculatorTests extends BaseTest {
                 .extremeFatLossResult("1778");
     }
 
-    @Test
-    public void Test6(){
+    @Test(description = "Сhecking the level of \"Daily\"")
+    @Description("Сhecking the level of \"Daily\"")
+    public void checkDaily(){
         calculatorPage
                 .openPage()
                 .writeAge("56")
@@ -124,8 +134,9 @@ public class CalculatorTests extends BaseTest {
                 .extremeFatLossResult("4617");
     }
 
-    @Test
-    public void Test7(){
+    @Test(description = "Сhecking the level of \"5 times/week (intense)\"")
+    @Description("Сhecking the level of \"5 times/week (intense)\"")
+    public void check5TimesWeekIntense(){
         calculatorPage
                 .openPage()
                 .writeAge("68")
@@ -145,8 +156,9 @@ public class CalculatorTests extends BaseTest {
 
     }
 
-    @Test
-    public void Test8(){
+    @Test(description = "Сhecking the level of \"Daily (intense) or twice daily\"")
+    @Description("Сhecking the level of \"Daily (intense) or twice daily\"")
+    public void checkDailyIntenseOrTwiceDaily(){
         calculatorPage
                 .openPage()
                 .writeAge("73")
@@ -164,8 +176,9 @@ public class CalculatorTests extends BaseTest {
                 .extremeFatLossResult("44183");
     }
 
-    @Test
-    public void Test9(){
+    @Test(description = "Сhecking the level of \"Daily exercise + physical job\"")
+    @Description("Сhecking the level of \"Daily exercise + physical job\"")
+    public void checkDailyExerciseAndPhysicalJob(){
         calculatorPage
                 .openPage()
                 .writeAge("80")
