@@ -1,7 +1,6 @@
 package Tests;
 
 import io.qameta.allure.Description;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class CalculatorTests extends BaseTest {
@@ -21,9 +20,10 @@ public class CalculatorTests extends BaseTest {
                 .resultsInCalories()
                 .formulaMifflinStJeor()
                 .calculate()
-                .maintenanceResult("497")
-        .fatLossResult("-")
-        .extremeFatLossResult("-");
+                .maintenanceResult("497");
+        //.fatLossResult("-")
+        //.extremeFatLossResult("-");
+
     }
 
     @Test()
