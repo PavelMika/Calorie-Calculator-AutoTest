@@ -21,7 +21,7 @@ public class BaseTest {
     int timeout = 20;
     @BeforeMethod
     public void setDriver(ITestContext context){
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
         log.debug("Setup Implicit Wait to" + timeout);
         driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);

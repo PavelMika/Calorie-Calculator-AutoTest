@@ -10,9 +10,6 @@ public class CalculatorTests extends BaseTest {
 
     @Test(description = "Сhecking the level of \"Basal Metabolic Rate\"")
     @Description("Сhecking the level of \"Basal Metabolic Rate\"")
-    @Link
-    @Issue("rusak")
-    @TmsLink("rusak")
     public void checkBasalMetabolicRate() {
         calculatorPage
                 .openPage()

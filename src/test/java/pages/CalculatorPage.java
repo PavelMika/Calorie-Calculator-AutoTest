@@ -4,7 +4,9 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.AllureUtils;
 
 import static org.testng.Assert.assertEquals;
@@ -138,17 +140,14 @@ public class CalculatorPage extends BasePage {
 
     public CalculatorPage calculate(){
         driver.findElement(By.id("Button1")).click();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return this;
     }
 
     @Step("Validation that message contains number: {maintenance}")
     public CalculatorPage maintenanceResult(String maintenance){
         log.info("Validation that message contains number" + maintenance);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("answer")));
         String isExist = driver.findElement(By.id("answer")).getText();
         assertEquals(isExist,maintenance);
         AllureUtils.takeScreenshot(driver);
@@ -158,6 +157,8 @@ public class CalculatorPage extends BasePage {
     @Step("Validation that message contains number: {fatLoss}")
     public CalculatorPage fatLossResult(String fatLoss){
         log.info("Validation that message contains number" + fatLoss);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lose")));
         String isExist = driver.findElement(By.id("lose")).getText();
         assertEquals(isExist,fatLoss);
         AllureUtils.takeScreenshot(driver);
@@ -167,6 +168,8 @@ public class CalculatorPage extends BasePage {
     @Step("Validation that message contains number: {extremeFatLoss}")
     public CalculatorPage extremeFatLossResult(String extremeFatLoss){
         log.info("Validation that message contains number" + extremeFatLoss);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("loseExt")));
         String isExist = driver.findElement(By.id("loseExt")).getText();
         assertEquals(isExist,extremeFatLoss);
         AllureUtils.takeScreenshot(driver);
